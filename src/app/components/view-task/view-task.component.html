@@ -1,0 +1,46 @@
+<app-navigation-bar></app-navigation-bar> <br /><br /><br />
+<a class="nav-link" [routerLink]="['']" (click)="openModal()"
+  ><h3 align="left">Create Task</h3></a
+>
+<app-modal #modal></app-modal>
+<!-- <app-create-task #modal> </app-create-task> -->
+<!-- <button type="button" class="btn btn-primary btn-sm" (click)="onSettingsOpen()">Open Aside</button> -->
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Task ID</th>
+      <th scope="col">Task Name</th>
+      <th scope="col">Project</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of taskList">
+      <td>{{ task._id }}</td>
+      <td>{{ task.name }}</td>
+      <td>{{ task.project }}</td>
+      <td>{{ task.comments }}</td>
+
+      <td>
+        <button
+          type="button"
+          class="btn btn-success mr-1"
+          (click)="viewTask(task._id)"
+        >
+          Edit
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteTask(task._id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

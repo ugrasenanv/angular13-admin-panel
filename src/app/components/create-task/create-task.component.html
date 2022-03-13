@@ -1,0 +1,73 @@
+<!-- <app-navigation-bar></app-navigation-bar> -->
+<div #myModal class="container">
+  <div class="content">
+    <p>Some content here...</p>
+    <button (click)="close()">Close</button>
+  </div>
+
+  <h1 #main align="left">Create Task</h1>
+
+  <div #main class="col-md-4 m-5 pb-5">
+    <form [formGroup]="createTaskForm" (ngSubmit)="createTask()">
+      <div class="form-group">
+        <label>Task Name : </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          placeholder="Enter Task name"
+        />
+        <span
+          class="warning"
+          *ngIf="createTaskForm.controls['name'].errors?.required"
+        >
+          *Task name is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label>Project : </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="project"
+          placeholder="Enter Project"
+        />
+        <span
+          class="warning"
+          *ngIf="createTaskForm.controls['project'].errors?.required"
+        >
+          *Task project is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label>comments : </label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="comments"
+          placeholder="Enter Task phone"
+        />
+        <span
+          class="warning"
+          *ngIf="createTaskForm.controls['comments'].errors?.required"
+        >
+          *Task comments is required
+        </span>
+      </div>
+      <button type="reset" class="btn btn-warning mr-1">Reset</button>
+      <button
+        type="submit"
+        [disabled]="!createTaskForm.valid"
+        class="btn btn-primary"
+      >
+        Create Task
+      </button>
+    </form>
+  </div>
+
+  {{ createTaskForm.value | json }}
+  {{ createTaskForm.valid | json }}
+
+  <!-- end -->
+</div>
