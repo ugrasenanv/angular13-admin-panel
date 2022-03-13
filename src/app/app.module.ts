@@ -9,7 +9,6 @@ import { NgxAsideModule } from 'ngx-aside';
 import { GetAllTasksService } from './task-services/get-all-task.service';
 import { GetATaskService } from './task-services/get-atask.service';
 import { SharedTaskService } from './task-services/shared.service';
-import { UpdateTaskComponent } from './components/update-task/update-task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { SaveTaskService } from './task-services/save-task.service';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
@@ -26,11 +25,10 @@ import { IframeComponent } from './components/contact-me/i-frame.component';
   declarations: [
     AppComponent,
     NavigationBarComponent,
-    UpdateTaskComponent,
     ViewTaskComponent,
     ModalComponent,
     ContactMeComponent,
-    IframeComponent
+    IframeComponent,
   ],
   bootstrap: [AppComponent],
   providers: [
